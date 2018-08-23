@@ -4,15 +4,15 @@ if [[ -z "${UUID}" ]]; then
 fi
 
 if [[ -z "${AlterID}" ]]; then
-  AlterID="10"
+  AlterID="64"
 fi
 
 if [[ -z "${V2_Path}" ]]; then
-  V2_Path="/FreeApp"
+  V2_Path="/scan"
 fi
 
 if [[ -z "${V2_QR_Path}" ]]; then
-  V2_QR_Code="1234"
+  V2_QR_Code="111"
 fi
 
 rm -rf /etc/localtime
@@ -55,6 +55,17 @@ cat <<-EOF > /v2raybin/v2ray-$V_VER-linux-$SYS_Bit/config.json
 {
     "log":{
         "loglevel":"warning"
+    },
+    "policy": {
+      "levels": {
+        "0": {
+          "uplinkOnly": 0,
+          "downlinkOnly": 0,
+          "connIdle": 150,
+          "handshake": 4，
+          "bufferSize":20480
+        }
+      }
     },
     "inbound":{
         "protocol":"vmess",
