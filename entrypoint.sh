@@ -75,7 +75,7 @@ cat <<-EOF > /v2raybin/v2ray-$V_VER-linux-$SYS_Bit/config.json
             "clients":[
                 {
                     "id":"${UUID}",
-                    "level":1,
+                    "level":0,
                     "alterId":${AlterID}
                 }
             ]
